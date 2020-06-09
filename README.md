@@ -1,6 +1,7 @@
 # JavaScript Course
 
 <h2>Первая неделя</h2>
-<a href="https://github.com/sergeevsite/JavaScript_13/tree/lesson01"> Первый урок </a> — "Введение в язык, подключение javascript. Основы работы с Git" <br>
-<a href="https://github.com/sergeevsite/JavaScript_13/tree/lesson02"> Второй урок + усложненный </a> — "Типы данных, операторы, методы и свойства" <br>
-<a href="https://github.com/sergeevsite/JavaScript_13/tree/lesson03"> Третий урок + усложненный </a> — "Динамическая типизация данных в Javascript. Все об условиях" <br>
+
+1. [Первый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson01) — `"Введение в язык, подключение javascript. Основы работы с Git"` <br>
+2. [Второй урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson02) — `"Типы данных, операторы, методы и свойства"` <br>
+3. [Третий урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson03) — `"Динамическая типизация данных в Javascript. Все об условиях"` <br>
