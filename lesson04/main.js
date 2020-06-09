@@ -9,7 +9,7 @@ let period = 4;
 
 let showTypeOf = function(data) {
   return console.log(typeof(data));
-}
+};
 
 showTypeOf(money);
 showTypeOf(income);
@@ -29,19 +29,19 @@ let expenses1 = prompt('Введите обязательную статью р�
     
 let getExpensesMonth = function() {
   return +amount1 + +amount2;
-}
+};
 console.log('Общие расходы за месяц: ', getExpensesMonth());
     
 console.log(addExpenses.toLocaleLowerCase().split(', '));
 
 let getAccumulatedMonth = function() {
   return money - getExpensesMonth();
-}
+};
 let accumulatedMonth = getAccumulatedMonth();
 
 let getTargetMonth = function() {
   return mission / accumulatedMonth;
-}
+};
 console.log('Цель будет достигнута за ' + Math.ceil(getTargetMonth()) + ' месяцев');
 
 let budgetDay = accumulatedMonth / 30;
@@ -57,6 +57,6 @@ let getStatusIncome = function() {
   }else {
     return ('Что то пошло не так :(');
   }
-}
+};
 
 console.log(getStatusIncome());
