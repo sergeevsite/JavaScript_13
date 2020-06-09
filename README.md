@@ -1,6 +1,6 @@
 # JavaScript Course
 
-<h2>Первая неделя</h2>
+## Первая неделя 
 
 1. [Первый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson01) — `"Введение в язык, подключение javascript. Основы работы с Git"` <br>
 2. [Второй урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson02) — `"Типы данных, операторы, методы и свойства"` <br>
