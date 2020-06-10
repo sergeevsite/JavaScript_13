@@ -32,27 +32,20 @@ console.log('Период равен ' +  period + ' месяцев');
 console.log('Цель заработать ' +  mission + ' рублей');
 
 let getExpensesMonth = function() {
-  let sum;
-    do {
-      sum = prompt('Во сколько это обойдется?');
+  let sum = 0;
+    let test = function() {
+      prompt('Введите обязательную статью расходов?');
+      do {
+        sum = prompt('Во сколько это обойдется?');
+      }
+      while(!isNumber(sum));
+      return +sum;
+    };
+    for(let i = 0; i < 2; i++) {
+      sum += test();
     }
-    while(!isNumber(sum));
-    
-    do {
-      sum = prompt('Во сколько это обойдется?');
-    }
-    while(!isNumber(sum));
-
-    // do {
-    //   sum = '';
-    //   sum += prompt('Во сколько это обойдется?');
-    // }
-    // while(!isNumber(sum));
-  //   prompt('Введите обязательную статью расходов?');
-  //   sum += +prompt('Во сколько это обойдется?');
   return sum;
 };
-
 
 let expensesAmount = getExpensesMonth();
 
@@ -69,11 +62,12 @@ let getTargetMonth = function() {
   
   return mission / accumulatedMonth;
 };
-let outputTargetMonth = (Math.ceil(!getTargetMonth()) < 0) ? 
-'Цель будет достигнута за ' + Math.ceil(getTargetMonth()) + ' месяцев' : 
-'Цель не будет достигнута';
 
-console.log(outputTargetMonth);
+if(getTargetMonth() < 0) {
+  console.log('Цель не будет достигнута');
+} else {
+  console.log('Цель будет достигнута за ' + Math.ceil(getTargetMonth()) + ' месяцев');
+}
 
 let budgetDay = accumulatedMonth / 30;
 console.log('Дневной бюджет: ', Math.floor(budgetDay));
