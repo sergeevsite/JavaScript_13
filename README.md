@@ -6,3 +6,4 @@
 2. [Второй урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson02) — `"Типы данных, операторы, методы и свойства"` <br>
 3. [Третий урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson03) — `"Динамическая типизация данных в Javascript. Все об условиях"` <br>
 4. [Четвертый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson04) — `"Все о функциях, callback - функции"` <br>
+4. [Пятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson05) — `"Все о циклах"` <br>
