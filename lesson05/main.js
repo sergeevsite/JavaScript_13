@@ -9,7 +9,7 @@ let income = 'Разработка сайтов';
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 let deposit = confirm('Есть ли у вас депозит в банке?');
 let mission = 1000000;
-let period = 4;
+let period = 3;
 
 let start = function() {
   do {
