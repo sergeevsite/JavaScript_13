@@ -12,7 +12,7 @@
 
 ## Вторая неделя 
 
-8. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) — `""` <br>
+8. [Восьмой урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) — `"Подготовим наш проект для работы со страницей"` <br>
 9. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) — `""` <br>
 10. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) — `""` <br>
 11. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) — `""` <br>
