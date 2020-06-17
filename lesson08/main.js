@@ -129,7 +129,9 @@ console.log(appData.getStatusIncome());
 
 console.log('Наша программа включает в себя данные: ');
 for ( let key in appData) {
-  console.log(key + ': ' + appData[key]);
+  if(typeof appData[key] !== 'function' && typeof appData[key] !== 'object') {
+    console.log(key + ': ' + appData[key]);
+  }
 }
 
 for (var i = 0; i < appData.addExpenses.length; i++) {
