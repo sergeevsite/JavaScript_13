@@ -13,7 +13,7 @@
 ## Вторая неделя 
 
 8. [Восьмой урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) — `"Подготовим наш проект для работы со страницей"` <br>
-9. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) — `""` <br>
+9. [Девятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) — `"Доступ к элементам на странице. DOM + DevTools"` <br>
 10. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) — `""` <br>
 11. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) — `""` <br>
 12. [](https://github.com/sergeevsite/JavaScript_13/tree/lesson12) — `""` <br>
