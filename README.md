@@ -2,8 +2,12 @@
 
 ## Первая неделя 
 
-* [Первый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson01) — `"Введение в язык, подключение javascript. Основы работы с Git"`
+Ссылка на работу | Тема | Статус | Результат
+--- | --- | --- | ---
+[Первый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson01) | `"Введение в язык, подключение javascript. Основы работы с Git"` | ![alt text](https://github.com/sergeevsite/JavaScript_13/blob/master/safety.png)
+
 * [Второй урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson02) — `"Типы данных, операторы, методы и свойства"`
+---
 * [Третий урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson03) — `"Динамическая типизация данных в Javascript. Все об условиях"`
 * [Четвертый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson04) — `"Все о функциях, callback - функции"`
 * [Пятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson05) — `"Все о циклах"`
