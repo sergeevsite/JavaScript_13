@@ -14,6 +14,8 @@
 
 ## Вторая неделя 
 
+Ссылка на работу | Тема | | Проект
+--- | --- | --- | ---
 [Восьмой урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) | `"Подготовим наш проект для работы со страницей"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Функционал калькулятора
 [Девятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) | `"Доступ к элементам на странице. DOM + DevTools"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор / Вывод даты
 [Десятый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) | `"Работа с объектами DOM"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) 
