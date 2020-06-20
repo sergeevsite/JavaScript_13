@@ -35,6 +35,20 @@ let isString = function(s) {
   return !isNaN(s) || s.trim() === '' || s === null;
 };
 
+// Проверка на пустоту Месячного дохода
+const checkEmpty = function() {
+  if(salaryAmount.value === '') {
+    startButton.setAttribute('disabled', 'disabled');
+  }
+  salaryAmount.addEventListener('input', function() {
+    if(salaryAmount.value === '') {
+      startButton.setAttribute('disabled', 'disabled');
+    } else {
+      startButton.removeAttribute('disabled');
+    }
+  });
+};
+
 // Основные данные
 let appData = {
     budget: 0,
@@ -50,11 +64,7 @@ let appData = {
     percentDeposit: 0,
     moneyDeposit: 0,
     start: function() {
-      // Проверка на пустой "Месячный доход"
-      if(salaryAmount.value === '') {
-        alert('Ошибка, поле "Месячный доход" должно быть заполнено!');
-        return;
-      }
+
       appData.budget = +salaryAmount.value;
       appData.getExpenses();
       appData.getIncome();
@@ -78,6 +88,7 @@ let appData = {
       additionalIncomeValue.value = appData.addIncome.join(', ');
       targetMonthValue.value = Math.ceil(appData.getTargetMonth());
       incomePeriodValue.value = appData.calcSaveMoney();
+      appData.changePeriodValue();
     },
     // Метод добавление полей по нажатию на expensesItemsButton
     addExpensesBlock: function() {
@@ -156,6 +167,7 @@ let appData = {
     },
     getTargetMonth: function() {
       // Расчет периода до цели
+
       return targetAmount.value / appData.budgetMonth;
     },
     getStatusIncome: function() {
@@ -193,6 +205,7 @@ let appData = {
 
 // Расчет параметров
 startButton.addEventListener('click', appData.start);
+checkEmpty();
 
 // Добавление новых полей "Обязательные расходы"
 expensesItemsButton.addEventListener('click', appData.addExpensesBlock);
@@ -201,5 +214,4 @@ expensesItemsButton.addEventListener('click', appData.addExpensesBlock);
 incomeItemsButton.addEventListener('click', appData.addIncomeBlock);
 
 // Смена значения "Период расчета" в зависимости от ползунка
-periodSelect.addEventListener('input', appData.changePeriodValue);
-
+periodSelect.addEventListener('input', appData.showResult);
