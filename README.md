@@ -20,7 +20,7 @@
 [Девятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) | `"Доступ к элементам на странице. DOM + DevTools"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор / Вывод даты
 [Десятый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) | `"Работа с объектами DOM"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) 
 [Одиннадцатый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) | `"Загрузка документа. События в JS. Обработчики событий и особенности их работы."` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор
-[Двенадцатый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson12) | `"Storage"` | | ToDo-лист
+[Двенадцатый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson12) | `"Storage"` | - | ToDo-лист
 
 ## Третья неделя 
 
