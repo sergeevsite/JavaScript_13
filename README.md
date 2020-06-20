@@ -12,11 +12,11 @@
 
 ## Вторая неделя 
 
-* [Восьмой урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) — `"Подготовим наш проект для работы со страницей"`
+* [Восьмой урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) — `"Подготовим наш проект для работы со страницей"` 
 
-* [Девятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) — `"Доступ к элементам на странице. DOM + DevTools"` (**Калькулятор**)
+* (**Калькулятор**) [Девятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) — `"Доступ к элементам на странице. DOM + DevTools"`
 * [Десятый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) — `"Работа с объектами DOM"`
-* [Одиннадцатый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) — `"Загрузка документа. События в JS. Обработчики событий и особенности их работы."` (**Калькулятор**)
-* [Двенадцатый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson12) — `"Storage"` (**ToDo лист**)
+* (**Калькулятор**) [Одиннадцатый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) — `"Загрузка документа. События в JS. Обработчики событий и особенности их работы."`
+* (**ToDo лист**) [Двенадцатый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson12) — `"Storage"`
 
 ## Третья неделя 
