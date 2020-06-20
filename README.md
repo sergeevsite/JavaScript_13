@@ -4,7 +4,7 @@
 
 Ссылка на работу | Тема | | Результат
 --- | --- | --- | ---
-[Первый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson01) | `"Введение в язык, подключение javascript. Основы работы с Git"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/tick.png)
+[Первый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson01) | `"Введение в язык, подключение javascript. Основы работы с Git"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png)
 
 * [Второй урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson02) — `"Типы данных, операторы, методы и свойства"`
 ---
