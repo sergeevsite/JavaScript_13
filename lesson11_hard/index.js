@@ -23,9 +23,7 @@ let startButton = document.getElementById('start'),
     additionalIncomeValue = document.querySelector('.additional_income-value'),
     additionalExpensesValue = document.querySelector('.additional_expenses-value'),
     incomePeriodValue = document.querySelector('.income_period-value'),
-    targetMonthValue = document.querySelector('.target_month-value'),
-    inputName = document.querySelectorAll('[placeholder="Наименование"]'),
-    inputSum = document.querySelectorAll('[placeholder="Сумма"]');
+    targetMonthValue = document.querySelector('.target_month-value');
 
 // Функция проверки на число
 let isNumber = function(n) {
@@ -37,19 +35,23 @@ let isString = function(s) {
   return !isNaN(s) || s.trim() === '' || s === null;
 };
 
-// Проверка: Только цифры
-inputSum.forEach((item) => {
-  item.addEventListener('input', function() {
-    item.value = item.value.replace(/[^0-9]/, '');
-  });
-});
-
 // Проверка: Только русские буквы с пробелами и знаками
-inputName.forEach((item) => {
-  item.addEventListener('input', function() {
-    item.value = item.value.replace(/[^а-яА-Я\s\W]/, '');
+const validateRus = function(element) {
+  document.querySelectorAll(element).forEach((item) => {
+    item.addEventListener('input', function() {
+      item.value = item.value.replace(/[^а-яА-Я\s\W]/, '');
+    });
   });
-});
+};
+
+// Проверка: Только цифры
+const validateNumber = function(element) {
+  document.querySelectorAll(element).forEach((item) => {
+    item.addEventListener('input', function() {
+      item.value = item.value.replace(/[^0-9]/, '');
+    });
+  });
+};
 
 // Проверка на пустоту Месячного дохода
 if(salaryAmount.value === '') {
@@ -115,6 +117,8 @@ let appData = {
       for(let i = 0; i < cloneExpensesItem.children.length; i++) {
         cloneExpensesItem.children[i].value = '';
       }
+      validateRus('[placeholder="Наименование"]');
+      validateNumber('[placeholder="Сумма"]');
     },
     // Метод добавление полей по нажатию на incomeItemsButton
     addIncomeBlock: function() {
@@ -127,6 +131,8 @@ let appData = {
       for(let i = 0; i < cloneIncomeItem.children.length; i++) {
         cloneIncomeItem.children[i].value = '';
       }
+      validateRus('[placeholder="Наименование"]');
+      validateNumber('[placeholder="Сумма"]');
     },
     // Запись всех расходов в объект expenses
     getExpenses: function() {
@@ -223,6 +229,7 @@ let appData = {
     }
   };
 
+  
 // Расчет параметров
 startButton.addEventListener('click', appData.start);
 salaryAmount.addEventListener('input', checkEmpty);
@@ -235,3 +242,7 @@ incomeItemsButton.addEventListener('click', appData.addIncomeBlock);
 
 // Смена значения "Период расчета" в зависимости от ползунка
 periodSelect.addEventListener('input', appData.showResult);
+
+// Валидация
+validateRus('[placeholder="Наименование"]');
+validateNumber('[placeholder="Сумма"]');
