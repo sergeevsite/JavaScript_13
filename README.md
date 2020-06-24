@@ -14,6 +14,7 @@
 
 ## Вторая неделя 
 
+<<<<<<< Updated upstream
 Ссылка на работу | Тема | | Проект
 --- | --- | --- | ---
 [8 урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) | `"Подготовим наш проект для работы со страницей"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Функционал калькулятора
@@ -22,6 +23,13 @@
 [11 + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) | `"Загрузка документа. События в JS. Обработчики событий и особенности их работы."` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор
 [12 урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson12) | `"Storage"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | ToDo-лист
 [Бонус](https://github.com/sergeevsite/JavaScript_13/tree/bonus1) | `"Бонус задание выходного дня - 1"` | | Регистрация и Авторизация пользователей
+=======
+8. [Восьмой урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson08) — `"Подготовим наш проект для работы со страницей"` <br>
+9. [Девятый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) — `"Доступ к элементам на странице. DOM + DevTools"` <br>
+10. [Десятый урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) — `"Работа с объектами DOM​"` <br>
+11. `Калькулятор` [Одиннадцатый урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) — `"Загрузка документа. События в JS. Обработчики событий и особенности их работы."` <br> 
+12. `ToDo лист` [Двенадцатый урок](https://github.com/sergeevsite/ToDoList/tree/lesson12) — `"Storage"` <br>
+>>>>>>> Stashed changes
 
 ## Третья неделя 
 
