@@ -18,13 +18,22 @@ DomElement.prototype.createElement = function() {
     element = document.createElement('p');
     element.id = this.selector.slice(1);
   }
-  let text = prompt('Напишите текст');
   document.body.appendChild(element);
-  element.textContent = text;
   element.style.cssText = 'height: ' + this.height + 'px' + 
                         '; width: ' + this.width + 'px' +
                         '; background: ' + this.bg +
-                        '; font-size: ' + this.fontSize + 'px';
+                        '; font-size: ' + this.fontSize + 'px' + 
+                        '; position: absolute;';
 };
 
-new DomElement('.selector', 200, 200, 'aqua', 24).createElement();
+DomElement.prototype.movePosition = function() {
+  console.log(this.style);
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+  new DomElement('.selector', 100, 100, 'aqua').createElement();
+  
+  window.addEventListener('keydown', function(){
+    new DomElement().movePosition();
+  });
+});
