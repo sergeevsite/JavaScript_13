@@ -14,7 +14,7 @@ let startButton = document.getElementById('start'),
     incomeItems = document.querySelectorAll('.income-items'),
     expensesTitle = expenses.querySelector('.expenses-title'),
     expensesItems = document.querySelectorAll('.expenses-items'),
-    additionalExpensesItem = document.querySelector('.additional_expenses-item'),
+    additionalExpensesItem = document.querySelectorAll('.additional_expenses-item'),
     targetAmount = document.querySelector('.target-amount'),
     periodSelect = document.querySelector('.period-select'),
     periodAmount = document.querySelector('.period-amount'),
@@ -86,14 +86,17 @@ class AppData {
   start() {
 
     this.budget = +salaryAmount.value;
-    this.getExpenses();
-    this.getIncome();
+    // this.getExpenses();
+    // this.getIncome();
+
+    this.getExpInc();
 
     this.getExpensesMonth();
     this.getIncomeMonth();
 
-    this.getAddExpenses();
-    this.getAddIncome();
+    // this.getAddExpenses();
+    // this.getAddIncome();
+    this.getAddExpInc();
 
     this.getBudget();
 
@@ -115,41 +118,15 @@ class AppData {
     });
   };
 
-  // Метод добавление полей по нажатию на expensesItemsButton
-  // addExpensesBlock() {
-  //   let cloneExpensesItem = expensesItems[0].cloneNode(true);
-  //   expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesItemsButton);
-  //   expensesItems = document.querySelectorAll('.expenses-items');
-  //   if(expensesItems.length === 3) {
-  //     expensesItemsButton.style.display = 'none';
-  //   }
-  //   for(let i = 0; i < cloneExpensesItem.children.length; i++) {
-  //     cloneExpensesItem.children[i].value = '';
-  //   }
-  //   validateRus('[placeholder="Наименование"]');
-  //   validateNumber('[placeholder="Сумма"]');
-  // };
-  // Метод добавление полей по нажатию на incomeItemsButton
-  // addIncomeBlock() {
-  //   let cloneIncomeItem = incomeItems[0].cloneNode(true);
-  //   incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomeItemsButton);
-  //   incomeItems = document.querySelectorAll('.income-items');
-  //   if(incomeItems.length === 3) {
-  //     incomeItemsButton.style.display = 'none';
-  //   }
-  //   for(let i = 0; i < cloneIncomeItem.children.length; i++) {
-  //     cloneIncomeItem.children[i].value = '';
-  //   }
-  //   validateRus('[placeholder="Наименование"]');
-  //   validateNumber('[placeholder="Сумма"]');
-  // };
+  // Метод добавление полей по нажатию на плюс
   addExpIncBlock(event) {
-    let items = event.target.previousElementSibling;
-    let cloneItem = items.cloneNode(true);
-    items.parentNode.insertBefore(cloneItem, event.target);
-    items = document.querySelectorAll(`.${items.className}`);
-    if(items.length === 3) {
-      event.target.style.display = 'none';
+    let itemsBlock = event.target.parentNode.children[1],
+        cloneItem = itemsBlock.cloneNode(true),
+        itemsButton = event.target;
+    itemsBlock.parentNode.insertBefore(cloneItem, itemsButton);
+    itemsBlock = document.querySelectorAll(`.${itemsBlock.parentNode.className}-items`);
+    if(itemsBlock.length === 3) {
+      itemsButton.style.display = 'none';
     }
     for(let i = 0; i < cloneItem.children.length; i++) {
       cloneItem.children[i].value = '';
@@ -157,46 +134,35 @@ class AppData {
     validateRus('[placeholder="Наименование"]');
     validateNumber('[placeholder="Сумма"]');
   };
-  // Запись всех расходов в объект expenses
-  getExpenses() {
-    expensesItems.forEach((item) => {
-      let itemExpenses = item.querySelector('.expenses-title').value;
-      let cashExpenses = item.querySelector('.expenses-amount').value;
-      console.log(item);
-      if(itemExpenses !== '' && cashExpenses !== '') {
-        this.expenses[itemExpenses] = cashExpenses;
+  // Запись всех расходов и доходов
+  getExpInc() {
+    const getItems = (item) => {
+      const str = item.className.split('-')[0];
+      const itemTitle = item.querySelector(`.${str}-title`).value;
+      const itemAmount = item.querySelector(`.${str}-amount`).value;
+      if(itemTitle !== '' && itemAmount !== '') {
+        this[str][itemTitle] = itemAmount;
       }
-    });
-  };
-  // Запись всех дополнительных доходов в объект income
-  getIncome() {
-    incomeItems.forEach((item) => {
-      let itemIncome = item.querySelector('.income-title').value;
-      let cashIncome = item.querySelector('.income-amount').value;
-      if(itemIncome !== '' && cashIncome !== '') {
-        this.income[itemIncome] = cashIncome;
-      }
-    });
-  };
-  // Получение и запись возможных расходов
-  getAddExpenses() {
-    let addExpenses = additionalExpensesItem.value.split(',');
-    addExpenses.forEach((item) => {
-      item = item.trim();
-      if(item !== '') {
-        this.addExpenses.push(item);
-      }
-    });
-  };
-  // Получение и запись возможных доходов
-  getAddIncome() {
-    additionalIncomeItem.forEach((item) => {
+    }
+    document.querySelectorAll('.expenses-items').forEach(getItems);
+    document.querySelectorAll('.income-items').forEach(getItems);
+  }
+  // Получение и запись возможных расходов и доходов
+  getAddExpInc() {
+    const getAddItems = (item, i, array) => {
+      item.value.split(',');
       let itemValue = item.value.trim();
       if(itemValue !== '') {
-        this.addIncome.push(itemValue);
+        if(array.length > 1) {
+          this.addExpenses.push(itemValue);
+        } else {
+          this.addIncome.push(itemValue);
+        }
       }
-    });
-  };
+    }
+    additionalIncomeItem.forEach(getAddItems);
+    additionalExpensesItem.forEach(getAddItems);
+  }
   getExpensesMonth() {
     // Расчет суммы расходов
     for (let key in this.expenses) {
