@@ -271,7 +271,7 @@ class AppData {
     // Расчет параметров
     startButton.addEventListener('click', () => {
       // Привязка контекста к объекту appData
-      appData.start.apply(appData);
+      this.start.apply(this);
       
       // Блокировка полей после рассчета
       data.querySelectorAll('input[type="text"').forEach((item) => {
@@ -283,19 +283,19 @@ class AppData {
       cancelButton.style.display = 'block';
       
       // Сброс данных
-      cancelButton.addEventListener('click', appData.reset.bind(appData));
+      cancelButton.addEventListener('click', this.reset.bind(this));
     });
 
     salaryAmount.addEventListener('input', checkEmpty);
 
     // Добавление новых полей "Обязательные расходы"
-    expensesItemsButton.addEventListener('click', appData.addExpIncBlock);
+    expensesItemsButton.addEventListener('click', this.addExpIncBlock);
 
     // Добавление новых полей "Дополнительный доход"
-    incomeItemsButton.addEventListener('click', appData.addExpIncBlock);
+    incomeItemsButton.addEventListener('click', this.addExpIncBlock);
 
     // Смена значения "Период расчета" в зависимости от ползунка
-    periodSelect.addEventListener('input', appData.changePeriodValue);
+    periodSelect.addEventListener('input', this.changePeriodValue);
 
     // Валидация
     validateRus('[placeholder="Наименование"]');
