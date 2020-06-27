@@ -14,7 +14,7 @@ let startButton = document.getElementById('start'),
     incomeItems = document.querySelectorAll('.income-items'),
     expensesTitle = expenses.querySelector('.expenses-title'),
     expensesItems = document.querySelectorAll('.expenses-items'),
-    additionalExpensesItem = document.querySelector('.additional_expenses-item'),
+    additionalExpensesItem = document.querySelectorAll('.additional_expenses-item'),
     targetAmount = document.querySelector('.target-amount'),
     periodSelect = document.querySelector('.period-select'),
     periodAmount = document.querySelector('.period-amount'),
@@ -25,7 +25,13 @@ let startButton = document.getElementById('start'),
     additionalExpensesValue = document.querySelector('.additional_expenses-value'),
     incomePeriodValue = document.querySelector('.income_period-value'),
     targetMonthValue = document.querySelector('.target_month-value'),
-    data = document.querySelector('.data');
+    data = document.querySelector('.data'),
+    depositCheck = document.getElementById('deposit-check'),
+    depositBank = document.querySelector('.deposit-bank'),
+    depositAmount = document.querySelector('.deposit-amount'),
+    depositPercent = document.querySelector('.deposit-percent');
+    
+    
 
 // Функция проверки на число
 const isNumber = (n) => {
@@ -86,14 +92,15 @@ class AppData {
   start() {
 
     this.budget = +salaryAmount.value;
-    this.getExpenses();
-    this.getIncome();
+
+    this.getExpInc();
 
     this.getExpensesMonth();
     this.getIncomeMonth();
 
-    this.getAddExpenses();
-    this.getAddIncome();
+    this.getInfoDeposit();
+
+    this.getAddExpInc();
 
     this.getBudget();
 
@@ -115,73 +122,51 @@ class AppData {
     });
   };
 
-  // Метод добавление полей по нажатию на expensesItemsButton
-  addExpensesBlock() {
-    let cloneExpensesItem = expensesItems[0].cloneNode(true);
-    expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesItemsButton);
-    expensesItems = document.querySelectorAll('.expenses-items');
-    if(expensesItems.length === 3) {
-      expensesItemsButton.style.display = 'none';
+  // Метод добавление полей по нажатию на плюс
+  addExpIncBlock(event) {
+    let itemsBlock = event.target.parentNode.children[1],
+        cloneItem = itemsBlock.cloneNode(true),
+        itemsButton = event.target;
+    itemsBlock.parentNode.insertBefore(cloneItem, itemsButton);
+    itemsBlock = document.querySelectorAll(`.${itemsBlock.parentNode.className}-items`);
+    if(itemsBlock.length === 3) {
+      itemsButton.style.display = 'none';
     }
-    for(let i = 0; i < cloneExpensesItem.children.length; i++) {
-      cloneExpensesItem.children[i].value = '';
-    }
-    validateRus('[placeholder="Наименование"]');
-    validateNumber('[placeholder="Сумма"]');
-  };
-  // Метод добавление полей по нажатию на incomeItemsButton
-  addIncomeBlock() {
-    let cloneIncomeItem = incomeItems[0].cloneNode(true);
-    incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomeItemsButton);
-    incomeItems = document.querySelectorAll('.income-items');
-    if(incomeItems.length === 3) {
-      incomeItemsButton.style.display = 'none';
-    }
-    for(let i = 0; i < cloneIncomeItem.children.length; i++) {
-      cloneIncomeItem.children[i].value = '';
+    for(let i = 0; i < cloneItem.children.length; i++) {
+      cloneItem.children[i].value = '';
     }
     validateRus('[placeholder="Наименование"]');
     validateNumber('[placeholder="Сумма"]');
   };
-  // Запись всех расходов в объект expenses
-  getExpenses() {
-    expensesItems.forEach((item) => {
-      let itemExpenses = item.querySelector('.expenses-title').value;
-      let cashExpenses = item.querySelector('.expenses-amount').value;
-      if(itemExpenses !== '' && cashExpenses !== '') {
-        this.expenses[itemExpenses] = cashExpenses;
+  // Запись всех расходов и доходов
+  getExpInc() {
+    const getItems = (item) => {
+      const str = item.className.split('-')[0];
+      const itemTitle = item.querySelector(`.${str}-title`).value;
+      const itemAmount = item.querySelector(`.${str}-amount`).value;
+      if(itemTitle !== '' && itemAmount !== '') {
+        this[str][itemTitle] = itemAmount;
       }
-    });
-  };
-  // Запись всех дополнительных доходов в объект income
-  getIncome() {
-    incomeItems.forEach((item) => {
-      let itemIncome = item.querySelector('.income-title').value;
-      let cashIncome = item.querySelector('.income-amount').value;
-      if(itemIncome !== '' && cashIncome !== '') {
-        this.income[itemIncome] = cashIncome;
-      }
-    });
-  };
-  // Получение и запись возможных расходов
-  getAddExpenses() {
-    let addExpenses = additionalExpensesItem.value.split(',');
-    addExpenses.forEach((item) => {
-      item = item.trim();
-      if(item !== '') {
-        this.addExpenses.push(item);
-      }
-    });
-  };
-  // Получение и запись возможных доходов
-  getAddIncome() {
-    additionalIncomeItem.forEach((item) => {
+    }
+    document.querySelectorAll('.expenses-items').forEach(getItems);
+    document.querySelectorAll('.income-items').forEach(getItems);
+  }
+  // Получение и запись возможных расходов и доходов
+  getAddExpInc() {
+    const getAddItems = (item, i, array) => {
+      item.value.split(',');
       let itemValue = item.value.trim();
       if(itemValue !== '') {
-        this.addIncome.push(itemValue);
+        if(array.length > 1) {
+          this.addExpenses.push(itemValue);
+        } else {
+          this.addIncome.push(itemValue);
+        }
       }
-    });
-  };
+    }
+    additionalIncomeItem.forEach(getAddItems);
+    additionalExpensesItem.forEach(getAddItems);
+  }
   getExpensesMonth() {
     // Расчет суммы расходов
     for (let key in this.expenses) {
@@ -196,7 +181,8 @@ class AppData {
   };
   getBudget() {
     // Расчет чистого дохода за месяц
-    this.budgetMonth = this.budget + this.incomeMonth - this.expensesMonth;
+    const monthDeposit = this.moneyDeposit * (this.percentDeposit / 100);
+    this.budgetMonth = this.budget + this.incomeMonth - this.expensesMonth + monthDeposit;
     // Расчет чистого дохода за день
     this.budgetDay = this.budgetMonth / 30;
   };
@@ -216,19 +202,6 @@ class AppData {
       return ('Что то пошло не так :(');
     }
   };
-  // Метод получения информации о депозите
-  getInfoDeposit() {
-    if(this.deposit) {
-      do {
-        this.percentDeposit = prompt('Какой годовой процент?', '10');
-      }
-      while(!isNumber(this.percentDeposit));
-      do {
-        this.moneyDeposit = prompt('Какая сумма заложена?', 10000);
-      }
-      while(!isNumber(this.moneyDeposit));
-    }
-  };
   changePeriodValue() {
     periodAmount.textContent = periodSelect.value;
   };
@@ -241,6 +214,12 @@ class AppData {
       item.removeAttribute('disabled');
       item.value = '';
     });
+
+    // Сброс депозита 
+    depositBank.removeAttribute('disabled');
+    depositCheck.removeAttribute('disabled');
+    depositCheck.checked = false;
+    this.depositHandler();
 
     // Смена кнопок
     startButton.style.display = 'block';
@@ -258,6 +237,7 @@ class AppData {
     for(let key in this.expenses) {
       delete this.expenses[key];
     }
+    this.deposit = false;
     this.expensesMonth = 0;
     this.addExpenses = [];
     this.percentDeposit = 0;
@@ -280,9 +260,54 @@ class AppData {
       incomeItemsButton.style.display = 'block';
     }
 
+    
     // Сброс результатов
     this.showResult();
     checkEmpty();
+    targetMonthValue.value = 'Срок';
+  };
+
+  // Метод получения информации о депозите
+  getInfoDeposit() {
+    if(this.deposit) {
+      this.percentDeposit = depositPercent.value;
+      this.moneyDeposit = depositAmount.value;
+    }
+  };
+
+  // Выбор банка
+  changePercent() {
+    const valueSelect = this.value;
+    if(valueSelect === 'other') {
+      depositPercent.style.display = 'inline-block';
+      depositPercent.value = '';
+      
+      depositPercent.addEventListener('input', () => {
+        if(!isNumber(depositPercent.value) || depositPercent.value < 0 || depositPercent.value > 100) {
+          depositPercent.value = '';
+        }
+      });
+    } else {
+      depositPercent.value = valueSelect;
+      depositPercent.style.display = 'none';
+    }
+  };
+
+  // Показывать/скрывать блоки депозита
+  depositHandler() {
+    if(depositCheck.checked){
+      this.deposit = true;
+      depositBank.style.display = 'inline-block';
+      depositAmount.style.display = 'inline-block';
+      depositBank.addEventListener('change', this.changePercent);
+    } else {
+      this.deposit = false;
+      depositBank.style.display = 'none';
+      depositAmount.style.display = 'none';
+      depositBank.value = '';
+      depositAmount.value = '';
+      depositBank.removeEventListener('change', this.changePercent);
+    }
   };
 
   eventListeners() {
@@ -290,39 +315,42 @@ class AppData {
     // Расчет параметров
     startButton.addEventListener('click', () => {
       // Привязка контекста к объекту appData
-      appData.start.apply(appData);
+      this.start.apply(this);
       
       // Блокировка полей после рассчета
       data.querySelectorAll('input[type="text"').forEach((item) => {
         item.setAttribute('disabled', true);
       });
-      
+      depositBank.setAttribute('disabled', true);
+      depositCheck.setAttribute('disabled', true);
+
       // Смена кнопок
       startButton.style.display = 'none';
       cancelButton.style.display = 'block';
       
       // Сброс данных
-      cancelButton.addEventListener('click', appData.reset.bind(appData));
+      cancelButton.addEventListener('click', this.reset.bind(this));
     });
 
     salaryAmount.addEventListener('input', checkEmpty);
 
     // Добавление новых полей "Обязательные расходы"
-    expensesItemsButton.addEventListener('click', appData.addExpensesBlock);
+    expensesItemsButton.addEventListener('click', this.addExpIncBlock);
 
     // Добавление новых полей "Дополнительный доход"
-    incomeItemsButton.addEventListener('click', appData.addIncomeBlock);
+    incomeItemsButton.addEventListener('click', this.addExpIncBlock);
 
     // Смена значения "Период расчета" в зависимости от ползунка
-    periodSelect.addEventListener('input', appData.changePeriodValue);
+    periodSelect.addEventListener('input', this.changePeriodValue);
 
     // Валидация
     validateRus('[placeholder="Наименование"]');
     validateNumber('[placeholder="Сумма"]');
 
+    // Установка депозита
+    depositCheck.addEventListener('change', this.depositHandler.bind(this));
   };
 };
 // Основные данные
 const appData = new AppData();
 appData.eventListeners();
-
