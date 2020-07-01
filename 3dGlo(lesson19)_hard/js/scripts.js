@@ -108,7 +108,9 @@ window.addEventListener('DOMContentLoaded', () => {
     popupBtn.forEach((item) => {
       item.addEventListener('click', () => {
         popup.style.display = 'block';
-        playAnimate();
+        if(window.innerWidth > 768) {
+          playAnimate();
+        }
       });
     });
 
