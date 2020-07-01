@@ -44,11 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Меню
   const toggleMenu = () => {
-    const btnMenu = document.querySelector('.menu'),
-          menu = document.querySelector('menu'),
-          closeBtn = document.querySelector('.close-btn'),
-          menuItems = menu.querySelectorAll('ul > li'),
-          scrollBtn = document.querySelector('a[href="#service-block"]');
+    const menu = document.querySelector('menu');
 
     // Открытие и закрытие меню
     const handlerMenu = () => {
@@ -56,39 +52,48 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     // События
-    btnMenu.addEventListener('click', handlerMenu);
-    closeBtn.addEventListener('click', handlerMenu);
-
-    menuItems.forEach((item) => {
-      item.addEventListener('click', (e) => {
+    document.addEventListener('click', (event) => {
+      let target = event.target;
+      
+      // Плавный сколл по клику в меню и закрытие меню
+      if(target.tagName === 'A' || target.classList.contains('.close-btn')) {
         handlerMenu();
-        e.preventDefault();
-        const sectionId = item.children[0].getAttribute('href'),
-              section = document.querySelector(sectionId);
-        section.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      });
-    });
+        if(target.parentNode.tagName === 'LI') {
+          event.preventDefault();
+          const sectionId = target.getAttribute('href'),
+          section = document.querySelector(sectionId);
+          section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
 
-    scrollBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const section = document.querySelector('#service-block');
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      // По кнопке меню
+      target = target.closest('.menu');
+      if(target) {
+        handlerMenu();
+      }
     });
   };
 
   toggleMenu();
 
+  // Плавный скролл по кнопке
+  const scrollBtn = document.querySelector('a[href="#service-block"]');
+  scrollBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const section = document.querySelector('#service-block');
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+
   // Попап-окно
   const togglePopup = () => {
     const popup = document.querySelector('.popup'),
           popupBtn = document.querySelectorAll('.popup-btn'),
-          popupClose = document.querySelector('.popup-close'),
           popupContent = popup.querySelector('.popup-content');
           
     // Анимация попап-окна
@@ -114,11 +119,20 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Закрытие окна
-    popupClose.addEventListener('click', () => {
-      popup.style.display = 'none';
-    });
+    
+    popup.addEventListener('click', (event) => {
+      let target = event.target;
 
+      // Закрытие окна
+      if(target.classList.contains('popup-close')) {
+        popup.style.display = 'none';
+      } else {
+        target = target.closest('.popup-content');
+        if(!target) {
+          popup.style.display = 'none';
+        }
+      }
+    });
   };
 
   togglePopup();
@@ -145,7 +159,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // Клик по табу
     tabHeader.addEventListener('click', (event) => {
       let target = event.target;
-      if(target.classList.contains('service-header-tab')) {
+          target = target.closest('.service-header-tab');
+
+      if(target) {
         tab.forEach((item, i) => {
           if(item === target) {
             toggleContent(i);
