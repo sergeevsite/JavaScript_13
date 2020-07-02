@@ -113,6 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
     popupBtn.forEach((item) => {
       item.addEventListener('click', () => {
         popup.style.display = 'block';
+        document.body.style.overflow = 'hidden';
         if(window.innerWidth > 768) {
           playAnimate();
         }
@@ -126,10 +127,12 @@ window.addEventListener('DOMContentLoaded', () => {
       // Закрытие окна
       if(target.classList.contains('popup-close')) {
         popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
       } else {
         target = target.closest('.popup-content');
         if(!target) {
           popup.style.display = 'none';
+          document.body.style.overflow = 'auto';
         }
       }
     });
