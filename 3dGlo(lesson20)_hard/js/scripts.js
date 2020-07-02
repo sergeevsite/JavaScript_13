@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     // События
-    document.addEventListener('click', (event) => {
+    document.body.addEventListener('click', (event) => {
       let target = event.target;
       
       // Плавный сколл по клику в меню и закрытие
