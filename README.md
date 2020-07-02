@@ -21,10 +21,24 @@
 [10 урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) | `"Работа с объектами DOM"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) 
 [11 + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) | `"Загрузка документа. События в JS. Обработчики событий и особенности их работы."` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор
 [12 урок](https://github.com/sergeevsite/ToDoList/tree/lesson12) | `"Storage"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | ToDo-лист
-[Бонус](https://github.com/sergeevsite/JavaScript_13/tree/bonus1) | `"Бонус задание выходного дня - 1"` | | Регистрация и Авторизация пользователей
+[Бонус](https://github.com/sergeevsite/JavaScript_13/tree/bonus1) | `"Бонус задание выходного дня - 1"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Регистрация и Авторизация пользователей
 
 ## Третья неделя 
 
 Ссылка на работу | Тема | | Проект
 --- | --- | --- | ---
-[13 урок + бонус](https://github.com/sergeevsite/JavaScript_13/tree/lesson13) | `"Контекст вызова - this"` | | Полный калькулятор / Смена цвета
+[13 урок + бонус](https://github.com/sergeevsite/JavaScript_13/tree/lesson13) | `"Контекст вызова - this"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор / Смена цвета
+[14 урок + дополнительное](https://github.com/sergeevsite/JavaScript_13/tree/lesson14) | `"ООП - Наследование, прототипы, конструкторы и классы"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор / Создает элемент(стиль ООП)
+[15 урок + дополнительное](https://github.com/sergeevsite/JavaScript_13/tree/lesson15) | `"Особенности современного стандарта ES6 Шаблонные строки,интерполяция, Стрелочные функции, Геттеры, Сеттеры и Классы"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор
+[16 урок + Задания в Codepen (дополнительное)](https://github.com/sergeevsite/JavaScript_13/tree/lesson16) | `"Доп урок ES6+"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор
+[17 урок Дополнительные (2 и 3)](https://github.com/sergeevsite/JavaScript_13/tree/lesson17) | `"Способы перебора массивов"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Все задания в CodePen
+
+## Четвертая неделя 
+
+Ссылка на работу | Тема | | Проект
+--- | --- | --- | ---
+[18 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson18) | `"Скрипты и время выполнения"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | 3dGlo(Таймер) / Анимация
+[19 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson19) | `"Параметры документа, окна и работа с ними"` | | 3dGlo(Модально окно + анимация + плавнаый скролл)
+[20 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson20) | `"Делегирование"` | | 3dGlo(Табы + Доработка меню и попап-окна)
+[21 урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson21) | `"Пишем слайдер с помощью делегирования"` | |
+[22](https://github.com/sergeevsite/JavaScript_13/tree/lesson22) | `"Практика ООП"` | |
