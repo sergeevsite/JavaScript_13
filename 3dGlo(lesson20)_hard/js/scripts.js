@@ -116,6 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
     popupBtn.forEach((item) => {
       item.addEventListener('click', () => {
         popup.style.display = 'block';
+        document.body.style.overflow = 'hidden';
         if(window.innerWidth > 768) {
           playAnimate();
         }
@@ -128,10 +129,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // Закрытие окна
       if(target.classList.contains('popup-close')) {
+        document.body.style.overflow = 'auto';
         popup.style.display = 'none';
       } else {
         target = target.closest('.popup-content');
         if(!target) {
+          document.body.style.overflow = 'auto';
           popup.style.display = 'none';
         }
       }
