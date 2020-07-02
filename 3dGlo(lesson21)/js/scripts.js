@@ -185,7 +185,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const slider = () => {
     const slider = document.querySelector('.portfolio-content'),
           slide = document.querySelectorAll('.portfolio-item'),
-          btn = document.querySelectorAll('.portfolio-btn'),
           dotsList = document.querySelector('.portfolio-dots');
 
     let currentSlide = 0,
