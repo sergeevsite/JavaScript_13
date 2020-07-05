@@ -20,7 +20,7 @@
 [9 урок + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson09) | `"Доступ к элементам на странице. DOM + DevTools"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор / Вывод даты
 [10 урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson10) | `"Работа с объектами DOM"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) 
 [11 + усложненный](https://github.com/sergeevsite/JavaScript_13/tree/lesson11) | `"Загрузка документа. События в JS. Обработчики событий и особенности их работы."` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Полный калькулятор
-[12 урок](https://github.com/sergeevsite/ToDoList/tree/lesson12) | `"Storage"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | ToDo-лист
+[12 урок](https://github.com/sergeevsite/ToDoList/tree/lesson12) | `"Storage"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | ToDo-лист (Обычный JS)
 [Бонус](https://github.com/sergeevsite/JavaScript_13/tree/bonus1) | `"Бонус задание выходного дня - 1"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | Регистрация и Авторизация пользователей
 
 ## Третья неделя 
@@ -38,7 +38,7 @@
 Ссылка на работу | Тема | | Проект
 --- | --- | --- | ---
 [18 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson18) | `"Скрипты и время выполнения"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | 3dGlo(Таймер) / Анимация
-[19 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson19) | `"Параметры документа, окна и работа с ними"` | | 3dGlo(Модально окно + анимация + плавнаый скролл)
-[20 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson20) | `"Делегирование"` | | 3dGlo(Табы + Доработка меню и попап-окна)
-[21 урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson21) | `"Пишем слайдер с помощью делегирования"` | |
-[22](https://github.com/sergeevsite/JavaScript_13/tree/lesson22) | `"Практика ООП"` | |
+[19 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson19) | `"Параметры документа, окна и работа с ними"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | 3dGlo(Модально окно + анимация + плавнаый скролл)
+[20 урок + усложненное](https://github.com/sergeevsite/JavaScript_13/tree/lesson20) | `"Делегирование"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | 3dGlo(Табы + Доработка меню и попап-окна)
+[21 урок](https://github.com/sergeevsite/JavaScript_13/tree/lesson21) | `"Пишем слайдер с помощью делегирования"` | ![](https://github.com/sergeevsite/JavaScript_13/blob/master/checkicon.png) | 3dGlo(Слайдер)
+[22 урок + усложненное](https://github.com/sergeevsite/ToDoList/tree/lesson22) | `"Практика ООП"` | | ToDo-лист (ООП)
