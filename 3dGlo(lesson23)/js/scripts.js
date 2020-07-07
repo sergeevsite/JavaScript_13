@@ -289,4 +289,35 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   slider();
+
+  // Смена картинки по наведению
+  const getChangeImage = () => {
+    const imgCommand = document.querySelectorAll('.command__photo');
+
+    imgCommand.forEach((image, index) => {
+      image.addEventListener('mouseover', (e) => {
+        let target = e.target;
+        target.src = target.dataset.img;
+      });
+      image.addEventListener('mouseout', (e) => {
+        let target = e.target;
+        target.src = target.dataset.img.replace(/[0-9]a/, index + 1)
+      });
+    });
+
+  };
+
+  getChangeImage();
+
+  // Ввод только цифр
+  const fieldNumber = (selector) => {
+    const fields = document.querySelectorAll(selector);
+    fields.forEach((field) => {
+      field.addEventListener('input', () => {
+        field.value = field.value.replace(/\D/, '');
+      });
+    });
+  };
+
+  fieldNumber('.calc-item');
 });
