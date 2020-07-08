@@ -319,7 +319,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  fieldNumber('.calc-item');
+  fieldNumber('input.calc-item');
 
   // Калькулятор
   const calc = (price = 100) => {
