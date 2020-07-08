@@ -320,4 +320,5 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   fieldNumber('.calc-item');
+
 });
