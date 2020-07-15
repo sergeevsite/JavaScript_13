@@ -479,53 +479,35 @@ window.addEventListener('DOMContentLoaded', () => {
       if(validPhone !== null && validEmail !== null && validName !== null && validMessage !== null) {
         // Вызываем отправку данных
         postData(body)
-          .then(() => {
+          .then((response) => {
+            if (response.status !== 200) {
+              throw new Error('Status network nor 200.');
+            }
             statusMessages.textContent = successMessage;
             // Очистка полей
             form.querySelectorAll('input').forEach( item => {
               item.value = '';
             });
           })
-          .catch(() => {
+          .catch((error) => {
             statusMessages.textContent = erorrMessage;
+            console.log(error);
           })
       } else {
         statusMessages.textContent = validateMessage;
       }
 
-      
     });
   };
 
   const postData = (body) => {
-    
-    return new Promise((resolve, reject) => {
-      // Создание запроса
-      const request = new XMLHttpRequest();
-
-      // Событие для отслеживания статуса
-      request.addEventListener('readystatechange', () => {
-
-        if(request.readyState !== 4) {
-          return;
-        }
-
-        if(request.status === 200) {
-          resolve();
-        } else {
-          reject(request.status);
-        }
-
-      });
-
-      // Отправка данных через сервер
-      request.open('POST', './server.php');
-      request.setRequestHeader('Content-Type', 'application/json');
-
-      // Преобразование в JSON
-      request.send(JSON.stringify(body));
+    return fetch('./server.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
     });
-    
   }
 
   sendForm('form1');
