@@ -440,7 +440,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // send-ajax-form
   const sendForm = (idForm) => {
     const erorrMessage = 'Что то пошло не так ...',
-          loadMessage = 'Загрузка...',
           successMessage = 'Спасибо! Мы скоро свяжемся с вами!',
           validateMessage = 'Данные введены не верно';
 
@@ -479,17 +478,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
       if(validPhone !== null && validEmail !== null && validName !== null && validMessage !== null) {
         // Вызываем отправку данных
-        postData(body, 
-        () => {
-          statusMessages.textContent = successMessage;
-          // Очистка полей
-          form.querySelectorAll('input').forEach( item => {
-            item.value = '';
-          });
-        }, 
-        () => {
-          statusMessages.textContent = erorrMessage;
-        });
+        postData(body)
+          .then(() => {
+            statusMessages.textContent = successMessage;
+            // Очистка полей
+            form.querySelectorAll('input').forEach( item => {
+              item.value = '';
+            });
+          })
+          .catch(() => {
+            statusMessages.textContent = erorrMessage;
+          })
       } else {
         statusMessages.textContent = validateMessage;
       }
@@ -498,32 +497,35 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const postData = (body, outputData, errorData) => {
-      
-    // Создание запроса
-    const request = new XMLHttpRequest();
-
-    // Событие для отслеживания статуса
-    request.addEventListener('readystatechange', () => {
-
-      if(request.readyState !== 4) {
-        return;
-      }
-
-      if(request.status === 200) {
-        outputData();
-      } else {
-        errorData(request.status);
-      }
-
-    });
-
-    // Отправка данных через сервер
-    request.open('POST', './server.php');
-    request.setRequestHeader('Content-Type', 'application/json');
+  const postData = (body) => {
     
-    // Преобразование в JSON
-    request.send(JSON.stringify(body));
+    return new Promise((resolve, reject) => {
+      // Создание запроса
+      const request = new XMLHttpRequest();
+
+      // Событие для отслеживания статуса
+      request.addEventListener('readystatechange', () => {
+
+        if(request.readyState !== 4) {
+          return;
+        }
+
+        if(request.status === 200) {
+          resolve();
+        } else {
+          reject(request.status);
+        }
+
+      });
+
+      // Отправка данных через сервер
+      request.open('POST', './server.php');
+      request.setRequestHeader('Content-Type', 'application/json');
+
+      // Преобразование в JSON
+      request.send(JSON.stringify(body));
+    });
+    
   }
 
   sendForm('form1');
