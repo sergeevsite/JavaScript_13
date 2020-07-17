@@ -5,6 +5,8 @@ import 'nodelist-foreach-polyfill';
 import 'formdata-polyfill';
 import 'es6-promise';
 import 'fetch-polyfill';
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 import elementClosest from 'element-closest';
 elementClosest(window);
 

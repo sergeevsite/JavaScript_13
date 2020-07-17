@@ -2,7 +2,7 @@ const convertClock = number => number = (number < 10) ? '0' + number : number;
 
 // Таймер
 const countTimer = () => {
-  const deadline = ('2020-07-17T00:00:00.000+09:00');
+  const deadline = ('2020-07-20T00:00:00.000+09:00');
   console.log(deadline)
   let timerHours = document.getElementById('timer-hours'),
       timerMinutes = document.getElementById('timer-minutes'),
