@@ -11,7 +11,7 @@ const sendForm = () => {
     if(type === 'phone') {
       patternChange = /[^\+\d]/;
     } else if(type === 'text_ru') {
-      patternChange = /^\s?[^А-ЯЁа-яё]/ig;
+      patternChange = /[^А-яёА-ЯЁ\s]/i;
     }
 
     field.addEventListener('input', () => {
